@@ -1,0 +1,78 @@
+/* 
+  Color Palette 
+  i) #1A1A1D, #4E4E50, #6F2232, #950740, #C3073F;  
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1a1a1d;
+  color: #fff;
+  font-family: "Rubik", sans-serif;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+}
+
+.container {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+h1 {
+  font-size: 4rem;
+  text-decoration: underline;
+  text-decoration-color: #c3073f;
+}
+
+h1 .red {
+  color: #950740;
+}
+
+h1 .purple {
+  color: #6f2232;
+}
+
+p.description {
+  font-size: 1.5rem;
+  margin: 1rem auto 3rem;
+}
+
+#time-remaining {
+  font-size: 2rem;
+}
+
+#time-remaining span {
+  font-size: 3rem;
+}
+
+.equation-container {
+  color: #c3073f;
+  padding: 1.5rem;
+  margin: 2rem auto;
+  border: 3px solid #c3073f;
+  border-radius: 0.3em;
+}
+
+.equation-container {
+  width: 600px;
+  font-size: 5rem;
+}
+
+.equation-container input {
+  height: 5rem;
+  font-size: 4rem;
+  max-width: 21%;
+  padding: 0.75rem;
+}
+
+.equation-container input:focus {
+  outline: none;
+}
