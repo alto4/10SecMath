@@ -76,3 +76,8 @@ p.description {
 .equation-container input:focus {
   outline: none;
 }
+
+.scoreboard-container {
+  text-align: left;
+  font-size: 2.5rem;
+}
