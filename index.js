@@ -1,5 +1,8 @@
 var equationText = document.querySelector("#equation").textContent;
-
+var currentAnswer = "";
+var equationAnswer;
+var playerScore = 0;
+var secondsLeft = 10;
 // 1. randomNumber - function to generate random number for equation
 var randomNumber = function () {
   var number = Math.floor(Math.random() * 10);
@@ -23,22 +26,31 @@ var generateEquation = function () {
   return sum;
 };
 
+// Event listener for keyup - checks user's answer every time a key is pressed
+window.addEventListener("keyup", function () {
+  currentAnswer = document.querySelector(".equation-container input").value;
+
+  if (checkAnswer() == currentAnswer) {
+    playerScore++;
+    secondsLeft++;
+    equationAnswer = generateEquation();
+    currentAnswer = "";
+  }
+});
+
 // 3. checkAnswer - function that will be triggered any time a change is detected in the input field and will return true when user puts in correct number
 var checkAnswer = function () {
   // Set equation in DOM to correspond with current equation
-  var equationAnswer = generateEquation();
-
-  var currentAnswer = document.querySelector(".equation-container input").value;
 
   if (currentAnswer == equationAnswer) {
     console.log("Nice one! You answered correctly");
+    document.querySelector(".equation-container input").value = "";
   }
-  console.log(equationText);
-  console.log(currentAnswer);
 
-  return currentAnswer == equationAnswer;
+  return equationAnswer;
 };
 
+equationAnswer = generateEquation();
 checkAnswer();
 
 // 4. incrementScoreboard - when a correct answer is entered, add to scoreboard and increment timer
