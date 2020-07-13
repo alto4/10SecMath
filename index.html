@@ -4,12 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>10 Second Math</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-      crossorigin="anonymous"
-    />
     <link rel="stylesheet" href="style.css" />
   </head>
 
@@ -17,20 +11,21 @@
     <div class="container">
       <h1><span class="red">10</span> Second <span class="red">Math</span></h1>
       <p class="description">
-        The game will start as soon as you press any key. <br />
-        Good luck!
+        The game will start as soon as you press any key. Good luck!
       </p>
-      <div id="time-remaining">
-        Time Remaining:<br /><span>10</span> seconds
-      </div>
-      <div class="scoreboard">
-        <div class="high-score-container">
-          High Score: <span id="high-score">0</span>
+      <div class="flex-container">
+        <div class="scoreboard">
+          <div class="high-score-container">
+            High Score: <span id="high-score">0</span>
+          </div>
+          Score: <span id="scoreboard">0</span>
         </div>
-        Score: <span id="scoreboard">0</span>
+        <div id="time-remaining">
+          <div>Time Remaining:<br /><span>10</span> seconds</div>
+        </div>
       </div>
       <div class="equation-container">
-        <span id="equation">1 + 1 = </span>
+        <span id="equation"></span>
         <input type="text" />
       </div>
     </div>

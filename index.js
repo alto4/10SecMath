@@ -70,7 +70,6 @@ window.addEventListener("keyup", function () {
 var checkHighScore = function (score) {
   if (playerScore > highScore) {
     highScore = playerScore;
-    alert("NICE! NEW HIGH SCORE!");
     highScoreDisplay.textContent = highScore;
   }
 };
@@ -90,13 +89,16 @@ var startCountdown = function () {
 
       if (secondsRemaining <= 0) {
         stopCountdown();
+        document.querySelector(".equation-container input").disabled = true;
+        countdownDiv.classList.add("game-over");
         countdownDiv.innerHTML =
-          "<h1>Game Over!</h1>" +
-          "<button class='btn-play-again'>Play Again</button></p>";
-
+          "<button class='btn-play-again'>Play Again</button></p>" +
+          "<h1>Game Over!</h1>";
         // Add event listener to Play Again button to start a new round
         var playAgainButton = document.querySelector(".btn-play-again");
         playAgainButton.addEventListener("click", function () {
+          countdownDiv.classList.remove("game-over");
+          document.querySelector(".equation-container input").disabled = false;
           checkHighScore(playerScore);
           resetGame();
           countdownDisplay = document.querySelector("#time-remaining span");
