@@ -77,7 +77,11 @@ p.description {
   outline: none;
 }
 
-.scoreboard-container {
+.scoreboard {
   text-align: left;
   font-size: 2.5rem;
+}
+
+.high-score-container {
+  font-size: 1rem;
 }
