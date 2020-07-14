@@ -28,7 +28,7 @@ var mathGame = function () {
     var randomOperand = operands[randomNumber(4)];
 
     // Generate answer to check for, rounded to a single decimal place in case of decimal
-    var answer = Math.floor(eval(num1 + randomOperand + num2));
+    var answer = Math.round(eval(num1 + randomOperand + num2));
 
     // Filter out and avoid any any unreasonable equations
     // Avoid any questions that result in an answer of Infinity (i.e. dividing by 0)
