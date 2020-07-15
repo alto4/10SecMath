@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DEBUG</title>
+</head>
+
+<body>
+  Debug
+  <script>
+    // randomNumber function - generates a random number for equation
+    var randomNumber = function (limit) {
+      var number = Math.floor(Math.random() * limit);
+      return number;
+    };
+
+    // generateEquation function - generates two random numbers and return the answer for comparison
+    var generateEquation = function () {
+      var answer;
+      // Generate two random integers between 0 and 9
+      var num1 = randomNumber(10);
+      var num2 = randomNumber(10);
+
+      // Generate random selection from array of operands
+      var operands = ["+", "-", "*", "/"];
+      var randomOperand = operands[randomNumber(4)];
+
+      console.log(randomOperand);
+
+      // i) If num1 is smaller than num2 and operand is subtract, flip them around 
+      if (randomOperand === operands[1] && num1 < num2) {
+        // Swap num1 and num2
+        var temp = num1;
+        num1 = num2;
+        num2 = temp;
+      }
+
+      // Generate answer
+      // If division operator is selected, ensure that equation returns a positive integer once evaluated
+      if (randomOperand === operands[3]) {
+        console.log('divisor - num1 and num2 are ' + num1 + ' and ' + num2);
+        // Filter out the possibility of 0 as num1 or num2
+        if (num1 < 1) {
+          num1 = 1;
+          console.log('0 evaded!');
+        }
+
+        if (num2 < 1) {
+          num2 = 1;
+
+          console.log('0 evaded!');
+        }
+
+        var num3 = num1 * num2;
+        console.log('num3 is ' + num3);
+        answer = eval(num3 + randomOperand + num1);
+      } else {
+        answer = eval(num1 + randomOperand + num2);
+      }
+      return answer;
+    };
+  </script>
+</body>
+
+</html>

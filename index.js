@@ -27,11 +27,35 @@ var mathGame = function () {
     var operands = ["+", "-", "*", "/"];
     var randomOperand = operands[randomNumber(4)];
 
-    // Generate answer to check for, rounded to a single decimal place in case of decimal
-    var answer = Math.round(eval(num1 + randomOperand + num2));
+    // Filter out invalid equations to ensure the answer is always a positive integer
+    // If num1 is smaller than num2 and operand is subtract, flip numbers around 
+    if (randomOperand === operands[1] && num1 < num2) {
+      var temp = num1;
+      num1 = num2;
+      num2 = temp;
+    }
 
-    // Filter out and avoid any any unreasonable equations
-    // Avoid any questions that result in an answer of Infinity (i.e. dividing by 0)
+    // If division operator is selected, ensure that equation returns a positive integer once evaluated
+    if (randomOperand === operands[3]) {
+      // Filter out the possibility of 0 as num1 or num2
+      if (num1 < 1) {
+        num1 = 1;
+      }
+
+      if (num2 < 1) {
+        num2 = 1;
+      }
+
+      // Calculate a new number to replace num1 in division equation
+      var num3 = num1 * num2;
+
+      // Swap number values for equation evaluation and display in DOM
+      num2 = num1;
+      num1 = num3;
+    }
+
+    // Generate answer 
+    var answer = eval(num1 + randomOperand + num2);
 
     // Manipulate equation container to display generated equation
     var equationString = num1 + " " + randomOperand + " " + num2 + " = ";
